@@ -1,7 +1,9 @@
 package ussdgwapp
 
 func (app *ussdAppImpl) WithHost(host string) UssdApp {
-	app.host = host
+	if host != "" {
+		app.host = host
+	}
 	return app
 }
 
@@ -11,21 +13,29 @@ func (app *ussdAppImpl) WithPort(port int) UssdApp {
 }
 
 func (app *ussdAppImpl) WithPath(path string) UssdApp {
-	app.path = path
+	if path != "" {
+		app.path = path
+	}
 	return app
 }
 
 func (app *ussdAppImpl) WithMethod(method string) UssdApp {
-	app.incomingMethod = method
+	if method != "" {
+		app.incomingMethod = method
+	}
 	return app
 }
 
 func (app *ussdAppImpl) WithMetricsPath(path string) UssdApp {
-	app.metricsPath = path
+	if path == "" {
+		app.metricsPath = path
+	}
 	return app
 }
 
 func (app *ussdAppImpl) WithHealthPath(path string) UssdApp {
-	app.healthPath = path
+	if path == "" {
+		app.healthPath = path
+	}
 	return app
 }

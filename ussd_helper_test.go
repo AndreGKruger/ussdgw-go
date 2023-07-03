@@ -22,4 +22,10 @@ func TestTransformToSnakeCase(t *testing.T) {
 	if got != want {
 		t.Errorf("transformToSnakeCase() = %v, want %v", got, want)
 	}
+
+	want = "this_is_a_test"
+	got = transformToSnakeCase("This Is A Test")
+	if got != want {
+		t.Errorf("transformToSnakeCase() = %v, want %v", got, want)
+	}
 }

@@ -12,6 +12,8 @@ import (
 
 func transformToSnakeCase(input string) string {
 	var output string
+
+	input = strings.Replace(input, " ", "", -1)
 	for i, r := range input {
 		if i > 0 && r >= 'A' && r <= 'Z' {
 			output += "_"
